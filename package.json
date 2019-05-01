@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo": "^2.9.0",
+    "apollo-boost": "^0.3.1",
+    "jsxstyle": "^2.1.5",
     "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0"
   },
