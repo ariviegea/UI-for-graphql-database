@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@atlaskit/button";
 import { Block } from "jsxstyle";
 import Products from "./Products";
+import AddProducts from "./AddProducts";
 
 class AdminPage extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class AdminPage extends React.Component {
         <Block fontSize={30}>Admin Page</Block>
         <Block>
           Add New
-          <Button appearance="primary">Product</Button>
+          <AddProducts />
           <Button appearance="primary">User</Button>
         </Block>
         <Products />
