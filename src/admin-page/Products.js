@@ -6,7 +6,7 @@ import { Table, TCell } from "./../stylings/Table";
 const Products = () => (
   <Query
     query={gql`
-      {
+      query products {
         Products {
           _id
           name
