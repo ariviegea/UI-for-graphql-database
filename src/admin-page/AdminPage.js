@@ -14,11 +14,11 @@ class AdminPage extends React.Component {
       <>
         <Block fontSize={30}>Admin Page</Block>
         <Block>
-          Add New
           <AddProducts />
-          <Button appearance="primary">User</Button>
         </Block>
-        <Products />
+        <Block marginTop="10px">
+          <Products />
+        </Block>
       </>
     );
   }

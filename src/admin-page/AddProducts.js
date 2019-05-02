@@ -72,12 +72,12 @@ class AddProducts extends Component {
     const { dialogOpen, name, price, description } = this.state;
     return (
       <>
-        <Button appearance="primary" onClick={this.addProduct}>
-          Add Product
-        </Button>
         <input value={name} onChange={this.onNameChange} />
         <input value={price} onChange={this.onPriceChange} />
         <input value={description} onChange={this.onDescriptionChange} />
+        <Button appearance="primary" onClick={this.addProduct}>
+          Add Product
+        </Button>
       </>
     );
   }
