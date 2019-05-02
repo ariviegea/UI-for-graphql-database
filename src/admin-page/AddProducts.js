@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import gql from "graphql-tag";
+import { withApollo } from "react-apollo";
 import Button from "@atlaskit/button";
 import ModalDialog from "@atlaskit/modal-dialog";
 
@@ -15,7 +16,10 @@ const addProduct = gql`
 
 class AddProducts extends Component {
   state = {
-    dialogOpen: false
+    dialogOpen: false,
+    name: "",
+    price: "",
+    description: ""
   };
 
   toggleDialog = () => {
@@ -24,45 +28,59 @@ class AddProducts extends Component {
     }));
   };
 
-  addProduct = (name, price, description) => {
-    const { client } = this.props;
-    return new Promise(async (resolve, reject) => {
-      try {
-        await client.mutate({
-          mutation: addProduct,
-          variables: {
-            name,
-            price,
-            description
-          },
-          refetchQueries: ["Product"],
-          awaitRefetchQueries: true
-        });
-      } catch (e) {
-        reject(e);
-      }
+  onNameChange = e => {
+    this.setState({
+      name: e.target.value
+    });
+  };
+  onPriceChange = e => {
+    this.setState({
+      price: e.target.value
+    });
+  };
+  onDescriptionChange = e => {
+    this.setState({
+      description: e.target.value
     });
   };
 
+  clearForm = () => {
+    this.setState({
+      name: "",
+      price: "",
+      description: ""
+    });
+  };
+
+  addProduct = async () => {
+    const { name, price, description } = this.state;
+    const { client } = this.props;
+    await client.mutate({
+      mutation: addProduct,
+      variables: {
+        name,
+        price: parseFloat(price),
+        description
+      },
+      refetchQueries: ["products"],
+      awaitRefetchQueries: true
+    });
+    this.clearForm();
+  };
+
   render() {
-    const { dialogOpen } = this.state;
+    const { dialogOpen, name, price, description } = this.state;
     return (
       <>
-        <Button appearance="primary" onClick={this.toggleDialog}>
+        <Button appearance="primary" onClick={this.addProduct}>
           Add Product
         </Button>
-        <ModalDialog
-          onSubmit={this.addProduct}
-          open={dialogOpen}
-          close={this.toggleDialog}
-          dialogTitle="Add new product"
-          buttonText="Add"
-        >
-          ADD INPUT FI
-        </ModalDialog>
+        <input value={name} onChange={this.onNameChange} />
+        <input value={price} onChange={this.onPriceChange} />
+        <input value={description} onChange={this.onDescriptionChange} />
       </>
     );
   }
 }
 
-export default AddProducts;
+export default withApollo(AddProducts);
