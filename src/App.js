@@ -1,7 +1,6 @@
 import React from "react";
 import { Block } from "jsxstyle";
-import Products from "./Products";
-import AdminPage from "./AdminPage";
+import AdminPage from "./admin-page/AdminPage";
 
 function App() {
   return (
@@ -9,7 +8,6 @@ function App() {
       <Block backgroundColor="grey" color="white" textAlign="center">
         Web shop
       </Block>
-      <Products />
       <AdminPage />
     </div>
   );

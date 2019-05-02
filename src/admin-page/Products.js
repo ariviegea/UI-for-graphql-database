@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import { Table, TCell } from "./Table";
 
 const Products = () => (
   <Query
@@ -21,12 +22,13 @@ const Products = () => (
 
       console.log(data);
 
-      return data.Products.map(({ name, product, price }) => (
-        <div key={name}>
-          <p>
-            {name}: {product} {price}
-          </p>
-        </div>
+      return data.Products.map(({ name, price, description, _id }) => (
+        <Table key={name}>
+          <TCell>{_id} </TCell>
+          <TCell>{name}</TCell>
+          <TCell name="price">{price}</TCell>
+          <TCell name="description">{description}</TCell>
+        </Table>
       ));
     }}
   </Query>
