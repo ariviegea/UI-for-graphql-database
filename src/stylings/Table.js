@@ -13,7 +13,13 @@ export const Table = ({ children, ...props }) => (
 );
 
 export const TCell = ({ children, top, name, onClick, Collapse, ...props }) => (
-  <Box component="row" padding="5px 10px" verticalAlign="top" props={props}>
+  <Box
+    component="row"
+    padding="5px 10px"
+    verticalAlign="top"
+    props={props}
+    textAlign="left"
+  >
     {children}
   </Box>
 );

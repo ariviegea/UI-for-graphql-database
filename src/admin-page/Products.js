@@ -1,7 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import { Table, TCell } from "./Table";
+import { Table, TCell } from "./../stylings/Table";
 
 const Products = () => (
   <Query
@@ -24,10 +24,10 @@ const Products = () => (
 
       return data.Products.map(({ name, price, description, _id }) => (
         <Table key={name}>
-          <TCell>{_id} </TCell>
-          <TCell>{name}</TCell>
-          <TCell name="price">{price}</TCell>
-          <TCell name="description">{description}</TCell>
+          <TCell name="id">{_id} </TCell>
+          <TCell name="Product">{name}</TCell>
+          <TCell name="Price">{price}</TCell>
+          <TCell name="Description">{description}</TCell>
         </Table>
       ));
     }}
