@@ -15,8 +15,16 @@ class AdminPage extends React.Component {
         <Block>
           <AddProducts />
         </Block>
-        <Block marginTop="10px">
-          <Products />
+        <Block marginTop="10px" margin-left="30px">
+          <thead>
+            <th />
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <Products />
+          </tbody>
         </Block>
       </>
     );

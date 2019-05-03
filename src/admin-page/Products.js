@@ -1,7 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import { Table, TCell } from "./../stylings/Table";
+import { Checkbox, CheckboxIcon } from "@atlaskit/checkbox";
 
 const Products = () => (
   <Query
@@ -23,12 +23,14 @@ const Products = () => (
       console.log(data);
 
       return data.Products.map(({ name, price, description, _id }) => (
-        <Table key={name}>
-          <TCell name="id">{_id} </TCell>
-          <TCell name="Product">{name}</TCell>
-          <TCell name="Price">{price}</TCell>
-          <TCell name="Description">{description}</TCell>
-        </Table>
+        <tr key={name}>
+          <th name="id">
+            <Checkbox />
+          </th>
+          <th name="Product">{name}</th>
+          <th name="Price">{price}</th>
+          <th name="Description">{description}</th>
+        </tr>
       ));
     }}
   </Query>
