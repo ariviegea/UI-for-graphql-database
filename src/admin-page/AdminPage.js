@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@atlaskit/button";
 import { Block } from "jsxstyle";
 import Products from "./Products";
 import AddProducts from "./AddProducts";
