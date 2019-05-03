@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@atlaskit/button": "^13.0.0",
+    "@atlaskit/checkbox": "^7.0.0",
     "@atlaskit/code": "^10.0.0",
     "@atlaskit/modal-dialog": "^9.0.0",
     "apollo": "^2.9.0",
